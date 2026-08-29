@@ -75,8 +75,16 @@
     color: var(--tinta-suave);
   }
 
-  /* ---- Seções ---- */
+  /* ---- Seções como abas: a primeira página mostra capa + estante;
+     as demais seções aparecem uma de cada vez, via :target ---- */
   section { padding: 3rem 0; border-top: 1px solid var(--linha); }
+  #ler, #baixar, #fisico, #expediente { display: none; }
+  #ler:target, #baixar:target, #fisico:target, #expediente:target { display: block; }
+  body:has(#ler:target, #baixar:target, #fisico:target, #expediente:target) .capa,
+  body:has(#ler:target, #baixar:target, #fisico:target, #expediente:target) #estante {
+    display: none;
+  }
+  #estante { border-top: none; }
   h2.titulo-secao {
     font-size: 1rem;
     font-weight: 600;
