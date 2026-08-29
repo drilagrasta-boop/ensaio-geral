@@ -96,30 +96,46 @@
   }
 
   /* ---- Estante ---- */
+  /* Réplica em miniatura da capa física (5×8), na formatação aprovada */
   .volume {
     border: 1px solid var(--tinta);
-    border-radius: 6px;
-    padding: 2rem 1.6rem 1.7rem;
-    max-width: 21rem;
+    background: var(--cru);
+    max-width: 19rem;
+    aspect-ratio: 5 / 8;
     margin: 0 auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.6rem 1.6rem 1.1rem;
   }
-  .volume .num {
-    font-size: .78rem; letter-spacing: .2em;
-    color: var(--tinta-suave);
+  .volume h3 {
+    font-size: 1.5rem; font-weight: 400;
+    margin-top: 1.5rem; text-wrap: balance;
   }
-  .volume h3 { font-size: 1.55rem; font-weight: 500; margin-top: .6rem; text-wrap: balance; }
-  .volume .sub { font-style: italic; margin-top: .35rem; }
-  .volume .autor {
-    margin-top: 1.1rem;
-    font-variant: small-caps;
-    letter-spacing: .14em;
-    font-size: 1.02rem;
+  .volume .sub { font-style: italic; margin-top: .45rem; font-size: .82rem; }
+  .assinatura {
+    margin: auto 0;
+    border: 1px solid var(--tinta);
+    border-radius: 5px;
+    width: 82%;
+    padding: .55rem .6rem .5rem;
   }
-  .volume .acoes {
-    margin-top: 1.5rem;
+  .assinatura .a-nome { font-size: .92rem; letter-spacing: .12em; }
+  .assinatura .a-lema { font-size: .5rem; letter-spacing: .2em; margin-top: .3rem; }
+  .assinatura .a-autor {
+    font-variant: small-caps; letter-spacing: .14em;
+    font-size: .78rem; margin-top: .4rem;
+  }
+  .assinatura .a-num { font-size: .72rem; letter-spacing: .14em; margin-top: .35rem; }
+  .volume .v-simbolo { width: 2rem; margin-bottom: .55rem; }
+  .volume .v-divisa { font-style: italic; font-size: .72rem; }
+  .acoes {
+    margin: 1.5rem auto 0;
+    max-width: 19rem;
     display: flex; flex-direction: column; gap: .45rem;
     font-size: .95rem;
+    text-align: center;
   }
 
   /* ---- Leitura ---- */
@@ -247,15 +263,21 @@
   <section id="estante">
     <h2 class="titulo-secao">Na coleção</h2>
     <div class="volume">
-      <p class="num">Nº 1 · 2026</p>
       <h3>Para interpretar o Brasil</h3>
       <p class="sub">Sete ensaios de intervenção</p>
-      <p class="autor">Caetano Lagrasta Neto</p>
-      <div class="acoes">
-        <a href="#ler">Ler on-line, gratuitamente</a>
-        <a href="#baixar">Baixar (EPUB ou PDF)</a>
-        <a href="#fisico">Encomendar o folheto impresso</a>
+      <div class="assinatura">
+        <p class="a-nome">ENSAIO GERAL</p>
+        <p class="a-lema">FOLHETOS POPULARES E ACADÊMICOS</p>
+        <p class="a-autor">Caetano Lagrasta Neto</p>
+        <p class="a-num">n. 1&ensp;&ensp;2026</p>
       </div>
+      <img class="v-simbolo" src="data:image/png;base64,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" alt="">
+      <p class="v-divisa">Desistir, afinal, é a única forma de derrota.</p>
+    </div>
+    <div class="acoes">
+      <a href="#ler">Ler on-line, gratuitamente</a>
+      <a href="#baixar">Baixar (EPUB ou PDF)</a>
+      <a href="#fisico">Encomendar o folheto impresso</a>
     </div>
   </section>
 
