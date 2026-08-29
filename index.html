@@ -131,6 +131,25 @@
   .leitura h2 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 .9rem; }
   .leitura p { margin: 0 0 .95rem; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
   .leitura p + p { text-indent: 1.4em; margin-top: -.4rem; }
+  .texto-integral { margin-top: 2.2rem; }
+  .texto-integral > summary {
+    display: table;
+    margin: 0 auto;
+    cursor: pointer;
+    border: 1px solid var(--tinta);
+    border-radius: 4px;
+    padding: .55rem 1.2rem;
+    font-size: .95rem;
+    letter-spacing: .05em;
+    list-style: none;
+    user-select: none;
+  }
+  .texto-integral > summary::-webkit-details-marker { display: none; }
+  .texto-integral > summary:hover,
+  .texto-integral > summary:focus-visible { background: var(--tinta); color: var(--cru); }
+  .texto-integral .fecha { display: none; }
+  .texto-integral[open] .abre { display: none; }
+  .texto-integral[open] .fecha { display: inline; }
   .referencias h1 { font-size: 1.45rem; font-weight: 500; margin: 3rem 0 1.1rem; }
   .referencias p { font-size: .92rem; margin-bottom: .7rem; padding-left: 1.4em; text-indent: -1.4em; }
 
@@ -235,6 +254,8 @@
         <span class="fonte">Januário Garcia</span>
       </div>
     </div>
+    <details class="texto-integral">
+    <summary><span class="abre">Ler o texto integral</span><span class="fecha">Fechar o texto</span></summary>
     <h1 id="apresentação">Apresentação</h1>
 <h1 id="teorias-políticas-para-interpretar-o-brasil">Teorias políticas
 para interpretar o Brasil</h1>
@@ -1188,6 +1209,7 @@ Paulo: Cultrix, 2011.</p>
 North American Congress on Latin America</em>, 12 maio 2011.</p>
 
     </div>
+    </details>
   </section>
 
   <section id="baixar">
