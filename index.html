@@ -1,0 +1,1259 @@
+<title>Ensaio Geral</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+  :root {
+    --cru: #F5F0E6;
+    --cru-fundo: #EFE9DC;
+    --tinta: #1A1A1A;
+    --tinta-suave: #55503f;
+    --linha: #d9d2c0;
+    --destaque: #8B2500;
+    --serif: "EB Garamond", Georgia, "Times New Roman", serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--cru-fundo);
+    color: var(--tinta);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    line-height: 1.65;
+  }
+  .folha {
+    max-width: 44rem;
+    margin: 0 auto;
+    background: var(--cru);
+    min-height: 100vh;
+    box-shadow: 0 0 24px rgba(26,26,26,.08);
+    padding: 0 clamp(1.2rem, 5vw, 3.4rem);
+  }
+  a { color: var(--destaque); text-decoration: none; }
+  a:hover, a:focus-visible { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--destaque); outline-offset: 2px; }
+
+  /* ---- Navegação ---- */
+  nav {
+    display: flex; flex-wrap: wrap; gap: .35rem 1.4rem;
+    justify-content: center;
+    padding: 1.1rem 0 1rem;
+    border-bottom: 1px solid var(--linha);
+    font-size: .82rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  nav a { color: var(--tinta); }
+  nav a:hover { color: var(--destaque); text-decoration: none; }
+
+  /* ---- Capa / abertura ---- */
+  header.capa { text-align: center; padding: clamp(2.5rem, 8vh, 5rem) 0 3rem; }
+  .capa h1 {
+    font-size: clamp(2.1rem, 6vw, 3.1rem);
+    font-weight: 500;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  .capa .lema {
+    margin-top: .7rem;
+    font-size: .86rem;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
+  }
+  .capa .apresenta {
+    margin: 2.4rem auto 0;
+    max-width: 34rem;
+    text-align: left;
+    text-align-last: left;
+  }
+  .capa .apresenta p + p { margin-top: .9rem; }
+  .capa .divisa {
+    margin-top: 2.6rem;
+    font-style: italic;
+    color: var(--tinta-suave);
+  }
+
+  /* ---- Seções ---- */
+  section { padding: 3rem 0; border-top: 1px solid var(--linha); }
+  h2.titulo-secao {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+  }
+
+  /* ---- Estante ---- */
+  .volume {
+    border: 1px solid var(--tinta);
+    border-radius: 6px;
+    padding: 2rem 1.6rem 1.7rem;
+    max-width: 21rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .volume .num {
+    font-size: .78rem; letter-spacing: .2em;
+    color: var(--tinta-suave);
+  }
+  .volume h3 { font-size: 1.55rem; font-weight: 500; margin-top: .6rem; text-wrap: balance; }
+  .volume .sub { font-style: italic; margin-top: .35rem; }
+  .volume .autor {
+    margin-top: 1.1rem;
+    font-variant: small-caps;
+    letter-spacing: .14em;
+    font-size: 1.02rem;
+  }
+  .volume .acoes {
+    margin-top: 1.5rem;
+    display: flex; flex-direction: column; gap: .45rem;
+    font-size: .95rem;
+  }
+
+  /* ---- Leitura ---- */
+  .leitura-cabeca { text-align: center; margin-bottom: 2.6rem; }
+  .leitura-cabeca .num { font-size: .78rem; letter-spacing: .2em; color: var(--tinta-suave); }
+  .leitura-cabeca h3 { font-size: 1.9rem; font-weight: 500; margin-top: .5rem; text-wrap: balance; }
+  .leitura-cabeca .sub { font-style: italic; margin-top: .4rem; font-size: 1.15rem; }
+  .leitura-cabeca .autor { margin-top: 1rem; font-variant: small-caps; letter-spacing: .14em; }
+  .epigrafe {
+    margin: 2.4rem auto 0; max-width: 26rem;
+    font-style: italic; text-align: left;
+  }
+  .epigrafe .fonte { display: block; margin-top: .5rem; font-style: normal; font-size: .88rem; text-align: right; }
+  .leitura h1 {
+    font-size: 1.45rem; font-weight: 500;
+    margin: 2.8rem 0 1.1rem;
+    text-wrap: balance;
+  }
+  .leitura h2 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 .9rem; }
+  .leitura p { margin: 0 0 .95rem; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  .leitura p + p { text-indent: 1.4em; margin-top: -.4rem; }
+  .referencias h1 { font-size: 1.45rem; font-weight: 500; margin: 3rem 0 1.1rem; }
+  .referencias p { font-size: .92rem; margin-bottom: .7rem; padding-left: 1.4em; text-indent: -1.4em; }
+
+  /* ---- Apoio / físico ---- */
+  .destacado {
+    border: 1px solid var(--linha);
+    border-left: 3px solid var(--destaque);
+    padding: 1.1rem 1.3rem;
+    margin: 1.4rem 0;
+    background: rgba(255,255,255,.35);
+    font-size: 1rem;
+  }
+  .destacado strong { font-weight: 600; }
+  .botoes { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.4rem; }
+  .botao {
+    display: inline-block;
+    border: 1px solid var(--tinta);
+    border-radius: 4px;
+    padding: .55rem 1.2rem;
+    color: var(--tinta);
+    font-size: .95rem;
+    letter-spacing: .05em;
+  }
+  .botao:hover { background: var(--tinta); color: var(--cru); text-decoration: none; }
+  .miuda { font-size: .88rem; color: var(--tinta-suave); margin-top: 1rem; }
+  section p + p { margin-top: .9rem; }
+
+  table.custos { border-collapse: collapse; margin: 1.2rem 0; font-size: .95rem; }
+  table.custos td { padding: .25rem 1.2rem .25rem 0; }
+  table.custos td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  table.custos tr.total td { border-top: 1px solid var(--linha); font-weight: 600; padding-top: .45rem; }
+
+  /* ---- Expediente ---- */
+  .expediente dl { display: grid; grid-template-columns: max-content 1fr; gap: .45rem 1.4rem; }
+  .expediente dt { font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; color: var(--tinta-suave); padding-top: .18rem; }
+  .expediente dd { margin: 0; }
+  @media (max-width: 480px) { .expediente dl { grid-template-columns: 1fr; gap: .1rem; } .expediente dd { margin-bottom: .7rem; } }
+
+  /* ---- Rodapé ---- */
+  footer {
+    border-top: 1px solid var(--linha);
+    text-align: center;
+    padding: 2.6rem 0 2.4rem;
+    font-size: .9rem;
+    color: var(--tinta-suave);
+  }
+  footer .simbolo { width: 30px; height: 30px; margin: 0 auto .9rem; }
+  footer .divisa { font-style: italic; }
+  footer .copy { margin-top: 1.2rem; font-size: .82rem; letter-spacing: .06em; }
+</style>
+
+<div class="folha">
+  <nav>
+    <a href="#colecao">A coleção</a>
+    <a href="#ler">Ler o nº 1</a>
+    <a href="#baixar">Baixar</a>
+    <a href="#fisico">Exemplar físico</a>
+    <a href="#expediente">Expediente</a>
+  </nav>
+
+  <header class="capa" id="colecao">
+    <h1>Ensaio Geral</h1>
+    <p class="lema">Folhetos populares e acadêmicos</p>
+    <div class="apresenta">
+      <p>Ensaio Geral é uma coleção de ensaios de intervenção: textos curtos,
+      escritos para dizer uma coisa só e dizê-la inteira. Cada número é um
+      folheto — na tradição dos panfletos que devolvem o debate à praça —
+      composto com o cuidado tipográfico de um livro e impresso sob demanda,
+      um exemplar de cada vez.</p>
+      <p>Aqui os textos podem ser lidos gratuitamente, na íntegra. Quem quiser
+      levá-los consigo pode baixá-los mediante doação simbólica à Paróquia de
+      São Miguel Arcanjo, do Padre Júlio Lancellotti, ou encomendar o folheto
+      impresso, feito à mão para cada pedido.</p>
+    </div>
+    <p class="divisa">Desistir, afinal, é a única forma de derrota.</p>
+  </header>
+
+  <section id="estante">
+    <h2 class="titulo-secao">Na coleção</h2>
+    <div class="volume">
+      <p class="num">Nº 1 · 2026</p>
+      <h3>Para interpretar o Brasil</h3>
+      <p class="sub">Sete ensaios de intervenção</p>
+      <p class="autor">Caetano Lagrasta Neto</p>
+      <div class="acoes">
+        <a href="#ler">Ler on-line, gratuitamente</a>
+        <a href="#baixar">Baixar (EPUB ou PDF)</a>
+        <a href="#fisico">Encomendar o folheto impresso</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="ler" class="leitura">
+    <div class="leitura-cabeca">
+      <p class="num">Nº 1 · 2026</p>
+      <h3>Para interpretar o Brasil</h3>
+      <p class="sub">Sete ensaios de intervenção</p>
+      <p class="autor">Caetano Lagrasta Neto</p>
+      <div class="epigrafe">
+        Existe uma história do negro sem o Brasil. O que não existe é uma
+        história do Brasil sem o negro.
+        <span class="fonte">Januário Garcia</span>
+      </div>
+    </div>
+    <h1 id="apresentação">Apresentação</h1>
+<h1 id="teorias-políticas-para-interpretar-o-brasil">Teorias políticas
+para interpretar o Brasil</h1>
+<p>Desde tempos imemoriais, o habitante deste planeta se confronta com
+os desafios da sobrevivência, domínio ou submissão, ora como política
+ora como angústia, procurando reagir em dispersa caminhada para
+encontrar um ponto de repouso. Toynbee (1987) analisa ciclos de
+florescimento e decadência na vida das civilizações e alerta para uma
+inexorável crise mundial, cujo desenlace seria a aniquilação da vida
+humana, tendo como um dos fatores relevantes o “cisma da alma”: a perda
+de propósitos e de identidade coletivos, capazes de conduzir à
+fragmentação e à desintegração. Este diagnóstico ressoa diante das
+crises democráticas de um mundo em rápida transformação e,
+especialmente, do Brasil do século XXI, exigindo análise das diferentes
+matrizes do pensamento político para compreender suas possibilidades e
+limitações no enfrentamento dos dilemas atuais.</p>
+<p>Malgrado o otimismo adequado aos tempos de sua reflexão, recorre-se
+ao republicanismo de Maquiavel (2025), ao mostrar que a conduta do
+político para conquistar, gozar e manter o poder deve estar submetida a
+estreitos princípios. Assim, enfatiza que a relação entre <em>Virtù</em>
+e <em>Fortuna</em> irá depender do equilíbrio entre mérito pessoal e
+oportunidade e que o bom governo se espelha na vocação e na virtude, ou
+seja, o governante, entre as diversas hipóteses contrapostas, deve optar
+por aquelas que lhe garantam o exercício da função, submetendo-se ao
+apoio do povo, especialmente quando pretenda inovações, e se utilizar de
+meios coercitivos, caso o povo, como em Savonarola, deixe de acreditar
+em suas reformas. Deve ainda aplicar a piedade, mais do que a clemência
+excessiva; ser temido sem chegar a ser odiado. Deixando de lado outros
+conselhos, cabe menção à fábula entre o leão e a raposa, entre a força e
+a astúcia, cujos ensinamentos se mostram relevantes para a democracia
+brasileira contemporânea, onde o equilíbrio entre virtude republicana e
+pragmatismo político torna-se essencial diante das pressões populistas e
+da fragmentação social. O sociólogo da modernização política, Max Weber
+(2011), enfatiza a influência da ética protestante na definição do
+‘espírito’ do capitalismo. Se Maquiavel nos fornece ferramentas básicas,
+Weber formula o paradoxo fundamental, com esteio nas máximas de Benjamin
+Franklin, para identificar que a dedicação ascética ao trabalho e ao
+lucro, embora sejam a base da racionalização econômica moderna,
+enfrentou resistência tenaz entre os trabalhadores e empresários que
+concebiam a atividade econômica como meio de satisfazer necessidades
+habituais e não como imperativo ético absoluto. Tal transformação, ao
+conferir dignidade moral a uma atividade vista como moralmente
+indiferente e mesmo condenável, serviu de ponte para investigações
+posteriores sobre os fundamentos sociológicos e éticos da atividade
+política, ao definir esta como a busca pelo poder e pela influência na
+condução do Estado, com a característica essencial de exercer o
+monopólio legítimo da violência, diferenciando duas formas de relação
+com a política: viver <em>para</em> a política, como missão e causa de
+vida, e viver <em>da</em> política, como profissão remunerada, onde a
+verdadeira vocação exigiria a articulação entre paixão, responsabilidade
+e senso de proporção (RIBEIRO, 2025).</p>
+<p>Nada obstante seu valor histórico, é inócuo recorrer ao pensamento
+político moderno sem antes compreender o Plano 2025 de Trump (GRAHAM,
+2025) e os documentários canadenses (<em>The Corporation</em>, 2003, e
+<em>The New Corporation</em>, 2020), que evidenciam a perpetuação do
+modelo neoliberal na economia financeirizada sem controles. Fraser
+(2019) identifica este cenário atual como expressão da crise hegemônica
+do neoliberalismo progressista, onde Trump ocupou a lacuna política com
+retórica populista, mas abandonou as promessas redistributivas mantendo
+a financeirização enquanto radicalizava a política excludente de
+reconhecimento. Hoje observa-se o retorno ao autoritarismo dos anos
+1930, com 40 milhões de pessoas na pobreza, ameaças a países vizinhos e
+apoio a governantes de extrema direita como os de Israel, Hungria,
+Polônia, Turquia e Brasil (CHADE, 2025).</p>
+<p>Ladislau Dowbor (2018) destaca que a governança corporativa global
+adquiriu dimensões tão amplas que suas estruturas inter e
+intracorporativas funcionam como verdadeiros governos no exercício de
+poder político. Esse poder concentrado aparece, por exemplo, na
+BlackRock, cujo faturamento gira em torno de US$ 14 trilhões, valor
+equivalente ao PIB dos Estados Unidos. De acordo com o autor, essa
+concentração extrema de riqueza, que coloca uma fração ínfima da
+população — 1% ou até 0,01% — em posição de deter mais patrimônio do que
+os 99% restantes, demonstra-se insustentável não apenas do ponto de
+vista ambiental, social e político, mas também econômico.</p>
+<p>O governo Bolsonaro investe contra a democracia brasileira diante da
+mentira, do populismo autoritário e da submissão a interesses externos,
+amplificando a insuficiência das matrizes tradicionais para enfrentar
+déficits de representatividade e justiça social: o republicanismo
+ressalta a virtude cívica; o liberalismo, embora valorize a
+institucionalidade, enfraquece a dimensão social; a social-democracia
+busca redistribuição de renda, mas esbarra na austeridade (MATTEI,
+2023), além de outras falhas na participação e representação. Diante
+desse impasse, quer parecer que seria adequado, como defendem Graeber e
+Wengrow (2022), recorrer às formas de Estado baseadas na cooperação, no
+afeto e na sabedoria comunitária de civilizações indígenas imemoriais,
+recém-descobertas no Continente.</p>
+<h1 id="intervencionismo-militar-no-brasil">Intervencionismo militar no
+Brasil</h1>
+<p>Diversos momentos cruciais da democracia brasileira evidenciam
+sucessivos golpes de Estado com participação dos militares. Assim, o
+intervencionismo configura-se como uma característica essencial da
+política nacional “pelo alto”. Essa participação, longe de ser
+episódica, remonta à própria formação do Exército, cuja gênese, como
+analisa Nelson Werneck Sodré (2010), esteve profundamente vinculada à
+repressão interna e à manutenção da ordem escravista e senhorial,
+atuando como instrumento da colonização e da dominação oligárquica. Este
+ensaio busca demonstrar, portanto, que as rupturas institucionais não
+resultaram de ações unicamente militares, mas expressaram arranjos
+complexos entre segmentos das Forças Armadas e setores civis, cuja
+articulação garantiu a viabilidade política e material de golpes de
+Estado.</p>
+<p>José Murilo de Carvalho (2019) alertava sobre a possibilidade “de
+sermos surpreendidos pelos acontecimentos como em 1964” e, mais adiante,
+dentre seis advertências, enfatiza a “questão mais geral da
+profissionalização das Forças Armadas”, envolvidas pelas disposições
+constitucionais em “verdadeiro círculo vicioso” quando intervêm “em nome
+da garantia da estabilidade do sistema político”, que nos mantém presos
+numa “armadilha” e dela somente conseguiremos escapar ao construir “uma
+economia forte, uma democracia includente e uma República efetiva”
+(pp. 22-25).</p>
+<h2 id="a-ditadura">A ditadura</h2>
+<p>Durante os 21 anos de ditadura militar (1964-1985), a sociedade
+brasileira experimentou atos sistemáticos de autoritarismo e violência —
+ainda mais brutais do que na Era Vargas —, com cerceamento das
+liberdades civis e violação da integridade física e moral dos cidadãos.
+Planos econômicos foram impostos à sociedade, favorecendo elites e
+segmentos da classe média, com significativa intervenção estrangeira —
+tanto na articulação do golpe, via CIA e Embaixada dos Estados Unidos,
+quanto no treinamento militar estrangeiro. Como destaca Leneide
+Duarte-Plon:</p>
+<blockquote>
+<p>O Golpe de 1964 levou ao poder veteranos na Força Expedicionária
+Brasileira (FEB) que haviam sido formados pela Missão Militar Francesa,
+entre eles Humberto Alencar Castelo Branco e Aurélio de Lira Tavares.
+Entre 1947 e 1974, 52 oficiais brasileiros foram diplomados pela Escola
+Superior de Guerra (ESG) de Paris ou por outro estabelecimento de ensino
+superior, dois terços desses entre 1958 e 1974. (DUARTE-PLON, 2026,
+p. 40)</p>
+</blockquote>
+<p>Essa influência culminou na Operação Condor, envolvendo países
+sul-americanos em práticas ilegais de interrogatórios, prisões
+arbitrárias, assassinatos e desaparecimentos. Muitas vítimas ainda
+permanecem desaparecidas, como revelam covas clandestinas no cemitério
+Dom Bosco, em Perus (TELES; SAFATLE, 2010, p. 256).</p>
+<p>O processo do golpe de 1964, para além da articulação entre setores
+civis e militares brasileiros, teve também caráter internacional. Marcos
+Napolitano (2024) evidencia o papel dos Estados Unidos na conspiração
+contra João Goulart durante a Guerra Fria (p. 10). A sociedade civil
+organizada, estudantes, bem como movimentos eclesiais de base,
+conseguiram demonstrar a crueldade do intervencionismo autoritário e, no
+correr dos anos, derrubar o regime ditatorial em busca daquilo que a
+elite militar e os conservadores definiram como uma “abertura lenta,
+gradual e segura”, no desejo de Geisel. Seu irmão, Orlando, no entanto,
+montou o Destacamento de Operações Internas e Centro de Operações e
+Defesa Interna — DOI-CODI como elementos do Poder do Estado, por meio de
+aprisionamento ilegal, tortura e morte (INSTITUTO VLADIMIR HERZOG,
+1970), estruturas mantidas por “caixinhas” de empresários, a exemplo de
+Albert Hening Boilesen, presidente da Ultragaz, dentre outros (SINDICATO
+DOS METALÚRGICOS DE SÃO JOSÉ DOS CAMPOS E REGIÃO, [s.d.]).</p>
+<p>Conforme observa Jessé Souza (2016), “os golpes sempre foram por mais
+dinheiro para poucos e nunca para combater corrupção” (idem, p. 19),
+sendo apoiados pelo Congresso (via sequestro do Orçamento) e financiados
+por eleições privadas, mídia controlada e uma base social engajada em
+suas causas. Denise Assis, jornalista e pesquisadora da Comissão
+Nacional da Verdade, ressalta a confissão do diretor e executor da
+montagem do DOI-CODI — o major do Exército, Fredie Perdigão — no sentido
+de que “todos sabiam de tudo” (ASSIS, 2024).</p>
+<p>A derrocada da Ditadura de 64 ocorre lentamente, impulsionada por
+manifestações populares — pobres, pretos, indígenas, mulheres,
+estudantes e outras minorias —, por ações parlamentares ambíguas e pela
+atuação eficaz de entidades como o Tortura Nunca Mais e a Comissão
+Justiça e Paz da Arquidiocese de São Paulo, liderada por Dom Paulo
+Evaristo Arns (CHAGAS; TORRES, 2008).</p>
+<p>Do povo nas ruas ao arremedo da eleição de Tancredo Neves — ainda de
+forma indireta e, por trama do destino, a subida de Sarney ao poder —,
+até a eleição direta, graças à Rede Globo, de Fernando Collor, mais uma
+farsa conservadora, conduzida pela tragédia da corrupção, terminando com
+o impeachment do presidente eleito (AVELAR, 1991).</p>
+<h2
+id="dos-governos-de-fhc-a-dilma-rousseff-e-o-antigoverno-de-bolsonaro">Dos
+governos de FHC a Dilma Rousseff e o antigoverno de Bolsonaro</h2>
+<p>Com características parelhas, o Governo FHC, de Centro Direita, e o
+de Lula, de Centro Esquerda, ambos expoentes da Social Democracia, em
+tudo melhor do que governos ditatoriais, mas que apenas distribuem
+favores à massa dos pobres, sem, contudo, admiti-la ao poder, ou aos
+melhores cargos, com raríssimas exceções. Conforme análise de Cliff
+Welch (2011), pouco fazem além de medidas paliativas na busca por uma
+verdadeira Reforma Agrária ou Reformas de Base consistentes, priorizando
+o agronegócio em detrimento da agricultura familiar — enquanto apenas
+acenam com regulamentações ambientais, controle de juros e políticas
+salariais.</p>
+<p>Dilma prosseguiu em seu mandato com altos índices de aprovação,
+enquanto legislava na proteção dos pobres (a lei das Domésticas, a
+retomada da política em favor dos familiares de desaparecidos e a
+criação, em 2011, da Comissão Nacional da Verdade). Entretanto, em
+conluio com alguns membros do Supremo Tribunal Federal e o Poder
+Judiciário paranaense (Moro, Dallagnol e asseclas, além do presidente da
+Câmara Eduardo Cunha), perpetrou-se o afastamento da presidenta, dando
+início a um novo golpe de Estado, através de violência jurídica e de um
+“julgamento midiático” coonestado pelos militares (SOUZA, 2016).</p>
+<p>O governo tampão de Temer impõe um novo regime político, que concilia
+a institucionalidade autoritária da Ditadura Civil-Militar, formulada
+por autores como Miguel Reale, ao ultraliberalismo construído no
+processo de oposição aos governos petistas (CHALOUB, 2023). Nomeados por
+Temer, adentram novamente ao governo pela porta dos fundos Generais como
+Etchegoyen e Braga Netto, figuras notórias da repressão e do
+retrocesso.</p>
+<p>A eleição de Bolsonaro coroou mais este processo intervencionista
+militar, resultante de manipulação midiática e apoio irrestrito das
+Forças Armadas (VICTOR, 2022). Seu governo abrigou em torno de 6.000
+militares em altos cargos, com denúncias de corrupção e negligências,
+tendo ocasionado a morte de mais de 700.000 pessoas na pandemia de
+Covid-19, em deliberada negligência (MINISTÉRIO DA SAÚDE, 2023).</p>
+<p>Muito haveria a historiar, mas basta, como queria Shakespeare,
+<em>last but not the least</em>, reconhecer que o episódio de 8 de
+janeiro de 2023 — tentativa frustrada de golpe de Estado com o
+envolvimento de setores civis e militares (COSTA, 2024) — representa a
+mais recente expressão de um padrão histórico de intervenção
+autoritária. Tal acontecimento corrobora os elementos desenvolvidos ao
+longo deste ensaio e reafirma a tese de que o intervencionismo militar —
+fruto, inclusive, da ausência de adequada profissionalização — constitui
+uma característica estrutural da política brasileira. Trata-se de uma
+tradição marcada pela violência institucionalizada, pela ruptura
+recorrente da ordem democrática, cujos efeitos se fazem sentir até o
+presente. À democracia brasileira, portanto, resta não apenas julgar e
+punir os responsáveis por este atentado, mas sobretudo romper, de forma
+definitiva, com as heranças autoritárias que ainda a assombram.</p>
+<h1 id="o-apagamento-histórico">O apagamento histórico</h1>
+<p>O conceito de apagamento sempre aparece encoberto por sutilezas
+culturais, seja na conceituação, seja nos esboços, coloridos ao arremate
+histórico. Ao sentido impressionista, surreal ou cubista, sobrepõem-se
+nuances inesperadas que dominam a criatividade até a deformação, ou
+mesmo ao total desprezo às teorias e leis que, na sucessão de ideologias
+e de direitos, por omissão ou domínio, vão se esgarçando até se
+conformarem como definitivamente extintas. A abordagem aqui pensada tem
+como cenário a busca efetiva de verdadeiras políticas públicas, posto
+que, pelo esmaecimento do acesso à liberdade e à igualdade, corolários
+do desenvolvimento da cidadania e do ser humano, sujeitos históricos
+permanecerão feridos, violentados ou mesmo silenciados desde sua
+origem.</p>
+<p>De igual modo ocorre com os movimentos sediciosos de escravos e
+quilombolas, imigrantes e refugiados, cuja sucessão, a partir da
+Colônia, foi sendo rapidamente controlada e apagada, até deixarem de ser
+História, tornando-se, séculos depois, matéria a ser definitivamente
+desenterrada — como no caso do morticínio de Carrancas (MAGOSSI, 2025)
+ou da revolta dos Malês, em “poucas horas desbaratada” (QUEIROZ, 2024,
+p. 137), ora resgatada pelo cinema de Antonio Pitanga (RODA VIVA, 2025)
+—, recuperação antecedida por breves menções, notas de rodapé,
+telenovelas, consolidando-se estas através do sucesso internacional
+(latino e eurocêntrico), onde Isaura, a escrava, surge na personagem da
+moçoila branca e melosa.</p>
+<p>O mesmo apagamento se impõe (na Educação, na Saúde, na desigualdade
+nos acessos ao trabalho, salário, moradia, sobrevivência e aposentadoria
+dignos), ante a negação dos mesmos princípios quanto aos direitos da
+cidadania e aos deveres do Estado, em concisa e objetiva discussão.
+Logo, o Brasil, usurpado aos povos indígenas, perpetua-se com os afros,
+sequestrados à sua terra e arrastados à condição de escravos, em
+violenta servidão e tortura, razão do epistemicídio, também por
+apropriação das lutas identitárias (CARNEIRO, 2005), além do completo
+apagamento da memória ancestral. Abandonados, vagam perdidos pelos
+vastos campos os selvagens que se arrastam por entre o fogo e a
+destruição de rios e matas, enquanto os afros, às falsificações
+fantasistas da mulher negra, fácil aos senhores, e à boçalidade do homem
+negro no eito (RIBEIRO, 1995), da cana de açúcar, cacau e café, que
+igualmente se apagam.</p>
+<p>Tragados pelo mutismo da impotência e repressão linguística, falam
+por ouvir e cantam por desespero ou banzo, juntando palavras em frases e
+melodias ininteligíveis aos brancos, como bem aponta Ana Maria Gonçalves
+(2025), eis que durante séculos deixaram de realmente aprender e
+aguardaram que se lhes permitissem professores das universidades ou,
+ainda mais raros, aqueles da estatura de Paulo Freire, até seu sumiço
+num fantasmagórico comunismo. Por mesquinhas cotas, alargam-se frestas
+nos portões da universidade, após transitarem por currículos escolares
+onde o melhor é a merenda, vedado concretizar a necessária e urgente
+união: estudante-trabalhador. E, carregando a cópia plastificada do
+diploma, tentam enfrentar a humilhação do desemprego, do salário,
+impotentes diante de oportunidades diminuídas — pela cor, por não ser do
+gênero adequado ou simplesmente por pertencer ao feminino —, permanecem
+impedidos de aceder à cultura e ao desenvolvimento, conforme análise dos
+dados do IBGE, recentemente divulgados (EIRAS; VIECELI, 2025). Assim,
+“as leis do crescimento condicionam a criatividade” (FURTADO, 1978,
+p. 2), que, reiteradas, lhes perpetuam a escravização, apagando-lhes
+criatividade, habilidades e memória. Nada obstante, o sofrimento e a
+dor, por mais horrendos ou risíveis que sejam — como no
+<em>Macunaíma</em>, de Mário de Andrade (2016) —, mantêm viva a
+ancestralidade, bastando-lhes breve ou extensa pesquisa musical
+(ANDRADE, 2007) para que o sentido de comunidade fraternal os devolva à
+luta. Não se trata de postular, como ensina Furtado, “a existência de um
+sujeito transcendental” antes de identificar o espaço onde se exerce a
+criatividade, “concebida no seu sentido amplo de invenção da cultura”
+(FURTADO, 1978, p. 3).</p>
+<p>Passa-se, à pressa envergonhada, da tragédia da Educação à da Saúde e
+que não se mencionem guerras coloniais, republicanas, e suas vítimas
+indígenas, afros e mais os pobres ou remediados, que, ao cabo, se
+prestam sempre à elite, sem qualquer recompensa, escorraçados das
+portarias de clínicas e hospitais, asilos ou hospícios. Acrescente-se
+ainda o sucateamento do Sistema Único de Saúde (BRASIL, 1990), em que o
+país foi pioneiro, a entregar os desvalidos às garras de planos de saúde
+ou seguros privados, em total obediência ao neoliberalismo.</p>
+<p>O apagamento, conceito singelo, reveste-se de barbárie e genocídio
+quando aplicado às camadas dos excluídos — por óbvio, os 99%,
+minimamente comparados ao 0,1% ou ao 1% dos donos da riqueza, rentistas
+imbatíveis (DOWBOR, 2022; SAFATLE, 2025). Quais outros exemplos e
+categorias ou classes poderiam ser emoldurados nessa abordagem? Muitos
+milhares? Ou bastaria fixar nas elites agrário-políticas e militares,
+curiosamente, um tríduo que se perpetua na precária (des)ordem política?
+E caso se optasse por referir o apagamento às artes, em especial à
+música em sua variante afro-religiosa? O agro não é pop; o agro é poder
+e apagamento. Hoje o agro é também nejo — agronejo —, e essa lógica
+invade a música sertaneja, apagando suas características e submetendo-a
+à lavoura mecanizada, à escora de um gênero feminino e branco. O rap e o
+funk, por sua vez, aparecem nos bailecos e pancadões da periferia, que
+acabam em intervenções policiais de espancamento, prisão ou morte (LIMA
+NETO, 2025).</p>
+<p>A simples menção à política, por sua vez, não será suficiente para
+compreender esse apagamento, devido à sazonalidade da eleição
+democrática ou à condenação de ex-presidentes — o último acoitado pela
+sanha tradicional golpista dos militares, estes pela primeira vez
+condenados e presos nos altos escalões. O sangue que envenena tal
+mentalidade se esparramou pela Faria Lima, centro nervoso do poder
+rentista, agora em conluio com o crime organizado. Acresce-se o
+sequestro do Orçamento federal, promovido por parlamentares corruptos e
+de extrema direita, o que, praticamente, impede o governo de atender às
+políticas públicas ou, até, de exercer o direito constitucional de
+indicar ministro ao STF, enquanto vão se apagando direitos e eventuais
+igualdades.</p>
+<p>Para o fotógrafo e militante do Movimento Negro, Januário Garcia,
+“existe uma história do negro sem o Brasil. O que não existe é uma
+história do Brasil sem o negro” (GARCIA apud ROGERO, 2022). A música
+brasileira é a confirmação disso, especialmente pelas vozes e
+composições de mestres como Dorival Caymmi, Tia Doca, Geraldo Filme,
+Cartola e Clementina de Jesus, dentre muitos, que desapagam a sonoridade
+e a recuperam na memória afro. A música e o canto indígenas, apesar do
+valor inestimável, persistem na conceituação de professores europeus
+visitantes como meramente folclóricos, por serem distantes da cultura
+eurocêntrica que se lhes tentou impor. À malemolência e ao correr de
+atabaques buscam-se correspondências discretas à crítica social do
+Carnaval — única exceção que mal-e-mal sobrevive ao apagamento, agora
+sob domínio de sistemas televisivos submetidos à hegemonia midiática, às
+restrições de sambódromos transformados em guetos, ou ao desfile da
+branquitude engalanada em fantasias riquíssimas nas alas designadas
+pelas escolas de samba e trios elétricos, adequando-se o Carnaval aos
+prazeres e visões limpinhas e ordeiras. Sem, todavia, conseguir esconder
+a influência dos terreiros de candomblé que, na lição de Sodré (2017,
+p. 143), na dança enxergam “a imitação exata do ataque e da defesa”.
+Pois, “como bem se sabe, as tradicionais falanges guerreiras
+eletrizavam-se ritmicamente: podia-se mesmo dançar no campo de batalha”,
+tratando-se da expansão do corpo que, “diferentemente da teologia cristã
+ou da meditação oriental”, não racionaliza seus conteúdos, constituindo
+“uma forma <em>somática</em> de pensar” (SODRÉ, 2017, p. 129, grifo do
+autor).</p>
+<p>Toussaint Louverture, líder indisputável da revolução haitiana, na
+biografia de Sudhir Hazareesingh (2021), ao encerrar, tem seu apagamento
+obviado pelo biógrafo, que narra as peripécias da França rumo ao seu
+reconhecimento, nada obstante o ingresso no Panteão, bustos e estatuária
+nas praças, sem esconder a proteção daquele governo ao escravismo e seus
+próceres. Finaliza e o faz com Louverture posando de herói, agora nas
+bandas de jazz, óperas e inúmeros álbuns de <em>band leaders</em>,
+chegando até 2018, com menção à banda haitiana Chouk Bwa (Toco de
+Árvore).</p>
+<p>Por sua vez, Albuquerque e Silva (2025), ao enfatizar pessoas na
+condição de cidadanias mutiladas, conceito extraído de Milton Santos,
+como Mônica de Menezes Campos, no Instituto Rio Branco, ou Vini Jr., nos
+campos de futebol, arremata com dignidades restauradas, dentre as quais
+as de Elza Soares, Rebecca Andrade ou a saga das 30.000 crianças
+sudanesas que, ao final de sua caminhada na direção do campo de
+refugiados de Kakuma, no Quênia, menos da metade sobreviveu.</p>
+<p>Ante o pleno domínio das big techs e suas inteligências ampliadas,
+persiste a aposta na recuperação de heróis e ancestralidades, quem sabe,
+até, no retorno a uma tradição oral, como sugere frase grafitada em muro
+do Quênia, na favela Korogocho, recolhida por Albuquerque e Silva (2025,
+p. 112): “Quanto menor o lagarto, maior a esperança de se tornar um
+crocodilo” — e lagartos, como se sabe, não pedem licença para
+crescer.</p>
+<h1 id="a-razão-africana-no-brasil">A razão africana no Brasil</h1>
+<p>A razão africana constitui sistema de pensamento baseado na
+interdependência entre todos os seres, opondo-se à lógica ocidental
+dualista. Materializa-se nas comunidades litúrgicas (Egbés), conforme o
+pensar nagô que privilegia experiência concreta sobre abstrações
+metafísicas (SODRÉ, 2017). Essa racionalidade ancora-se na política
+milenar dos povos originários da África, evidenciada também na América,
+mas negada pelo pensamento ocidental ao caracterizar essas sociedades
+como “selvagens ou primitivas”. Para compreender esse epistemicídio,
+recorre-se, na Amazônia, a descobertas arqueológicas via tecnologia
+LiDAR revelando civilizações de até 2.500 anos no Equador e mais de
+1.500 anos no Brasil, refutando a caracterização colonial (GRAEBER;
+WENGROW, 2022; PERIPATO et al., 2023; ROSTAIN et al., 2024) e, quanto à
+ancestralidade africana em Moçambique: “Por mais antigas que sejam, ou
+por mais primitiva que a sua estrutura se conserve, todos os povos e
+sociedades desenvolvem uma actividade política” (DE ALMEIDA, 2001, p. 6
+apud SENGULANE, 2015, p. 6), onde o poder liga-se primeiro “à
+demonstração de força e segundo, à habilidade, capacidade de decisão e
+execução rápida e eficaz” (SENGULANE, 2015, p. 6).</p>
+<p>A partir da Lei Áurea, consolidou-se a hipocrisia (ALONSO, 2015) ao
+declarar o Brasil livre da escravidão, apesar de ser um dos maiores
+receptadores de mão de obra escrava e nela prosseguir sob subterfúgios.
+O desequilíbrio econômico e moral do início do século XX mergulhou a
+humanidade em duas Guerras Mundiais, formulando teorias coloniais que
+sustentaram os fascismos. No Brasil, os governos mantiveram a
+subalternidade dos negros, ao exemplo dos Pracinhas, maioria negra,
+postos a desfilar em andrajos sem compensações prometidas, infâmia que
+atravessa Império e República. Getúlio Vargas ampara as elites com
+legislações fascistas, e nos anos 80 o país adota o neoliberalismo
+(DARDOT et al., 2021), fazendo do empreendedor mero rentista, agravando
+o desemprego e produzindo legiões de mão de obra barata, sistema que
+necessita cada vez menos força de trabalho para apropriar-se do
+excedente social (DOWBOR, 2022). Essa estrutura econômica articula-se
+com o aniquilamento intelectual: manter a população negra como reserva
+de trabalho precarizado exige negar sua produção intelectual e sistemas
+de pensamento válidos. Após o golpe de Temer ocorre a ruína das
+conquistas trabalhistas e hoje, com a Inteligência Artificial, novo
+parâmetro de precarização pelas Big Techs instaura verdadeira “terceira
+escravidão” (FARIAS, 2025), afetando principalmente a população negra e
+perpetuando a negação de seus saberes.</p>
+<p>Ao espanto da consciência sobre a verdadeira história do povo negro,
+sua ancestralidade e herança cultural sempre rejeitadas, constata-se
+resposta à negação sistemática dos saberes através de filosofia de vida
+fundada em rituais religiosos baseados no afeto e na alegria que, no
+Outro, busca a consolidação de vida comunitária, recusando a miragem
+improvável para optar pelo reino deste mundo (CARPENTIER, 2005). Nos
+terreiros de candomblé, espaços litúrgico-culturais onde sobreleva o
+respeito às divindades, a economia da dádiva e o axé (conceito iorubá da
+força de realização), asseguram-se condições de liberdade de crença e
+contato com princípios cosmológicos e ancestrais (SAYAD apud SODRÉ,
+2017, p. 92). Nessa luta firma-se o conceito de povo africano contra a
+aversão ao Outro que se intensifica com seu deslocamento territorial: “O
+diferente (o negro, o índio etc.) está ali onde não deveria”, como no
+exemplo do futebolista Boateng que, na opinião do racista alemão
+Gauland, é considerado excelente jogador, mas ninguém gostaria de tê-lo
+como vizinho (SODRÉ, 2017, p. 93).</p>
+<p>O parâmetro mais recente de exclusão e apagamento encontra-se no
+genocídio palestino e na reconstrução de seu país, através de plano
+traçado pelos EUA e Israel, ao enfatizar “Nova Gaza” nos moldes de
+“prósperas cidades modernas do Oriente Médio”, visão de megainvestidor
+imobiliário mais adequada ao lançamento de empreendimentos de luxo que à
+recuperação do povo (GREENHALGH, 2025). No Brasil o anseio libertário
+dos negros é igualmente impedido pelo governo brasileiro “que conduz seu
+próprio genocídio (…) utilizando armamentos israelenses” enquanto
+promove “o extermínio de comunidades negras nas periferias urbanas do
+Brasil” e através de sua política de drogas (VARGAS, 2025). Ao negar-se
+ao estudo de suas origens e da formação de suas nações, violentando os
+Egbés, oculta-se a pluralidade de saberes e perpetua-se o racismo. Os
+terreiros, ainda que perseguidos como “folclore” ou “superstições”,
+recusam imposições ideológico-religiosas, conservando experiências do
+transe na transmutação espiritual do humano e a divindade.</p>
+<p>Na música (LAGRASTA, 2024), a progressão lundu, maxixe, samba, jongo,
+canto do eito, e axé carnavalesco, através de blocos, cordões e ranchos
+que conduzem aos enredos de Escolas de Samba (MESTRE MARÇAL, 2020),
+materializa a razão africana corporificada. Conforme relato de Mestre
+Marçal e Marçalzinho, pai e filho, mestres de bateria da tradição
+portelense, opera-se apropriação de geografia simbólica entre “morro” e
+“planície”, espaço de resistência e liberdade, obra acabada da
+influência negra (LOPES; SIMAS, 2015). O samba é símbolo de resistência
+política ao reconduzir o povo às ruas e avenidas em manifestações contra
+a política parlamentar, devolvendo-lhes dignidade negada por estados e
+polícias que os definem como elementos de criminalidade. A esperança
+estabelece-se com avanços no ensino superior: a Universidade Zumbi dos
+Palmares, SP (2004); a UNILAB, Bahia (2010); e em 2025 o Projeto de Lei
+de criação da Universidade África-Brasil (SAMPAIO, 2025), conquistas que
+contrastam com a estatística de 16% de crianças, até 6 anos, vítimas de
+racismo dentro da escola (LACERDA, 2025). Evidências de que desistir da
+luta impõe a derrota.</p>
+<h1 id="a-universalidade-incompreendida-do-eleitor-pobre">A
+universalidade incompreendida do eleitor pobre</h1>
+<p>O pobre de direita é aquele distante do pobre insubmisso: elege e
+compactua com a elite que o explora, e, ao mesmo tempo em que é
+execrado, também é compadecido pela intelectualidade e pelos teóricos da
+sociologia e da política econômica. Boa parte desses intelectuais
+sobrevive na glória universitária, falseando e escondendo a sanha
+elitista que os inspira. Este ensaio pretende examinar como as
+instituições políticas e acadêmicas operam, juntamente com o Poder
+Judiciário, para mascarar contradições sociais, revestindo de aparente
+legalidade a participação democrática na perpetuação violenta de um
+sistema que, paradoxalmente, é legitimado por aqueles que padecem seus
+efeitos.</p>
+<p>Impossível neste breve espaço deixar de atentar para os teóricos que,
+a partir de fins do século XIX, ao se imiscuírem no ‘discurso liberal’,
+são como idealizadores de todo um sistema neoliberal nas mais diversas
+estruturas e que é a gênese da formação desta nova figura do pobre: a
+partir dos anos 20, Hayek, Schmitt, Mises, Müller-Armack subsidiaram a
+política de Mussolini e Hitler, cujos reflexos demarcam a crise de 29, a
+selvageria da primeira e da segunda guerras mundiais, consolidando o
+neoliberalismo através de políticos de extrema direita como Reagan,
+Thatcher, Pinochet, Trump e Bolsonaro (DARDOT et al., 2021).</p>
+<p>No Brasil, a partir dos anos 30, Gilberto Freyre se une a teóricos
+como Sergio Buarque de Holanda, Raymundo Faoro, Roberto DaMatta, para
+citar alguns — e cabe menção à posição divergente de Viana Moog quando
+redefine a elite ‘bandeirante’, não como assemelhada ao ascetismo do
+pioneiro norte-americano, mas ao escravizador de indígenas, invasor de
+terras, buscador de minérios, mantendo-os na exclusão e na desigualdade
+(MOOG, 1954). Quanto àqueles, caberia destacar a criação de mitos: ‘bom
+mestiço’, ‘homem cordial’, retorno ao patrimonialismo, distâncias entre
+‘rua e a casa’, que estabelecem miscelânea doutrinária que, de certa
+forma, confirma o conceito de racismo estrutural, cambaleando alguns em
+direção àquele cultural sem, contudo, conseguir tirar o pobre da ‘lata
+de lixo do mundo’. Ao invés de escravizado, passa também a corrupto,
+emotivo e inconfiável, o que se revela ‘não menos importante’ de
+‘eleitor de corruptos’, definindo-o Jessé Souza e sua tese como o ‘pobre
+de direita’, nada obstante, a posse do Estado, que apesar da alcunha de
+corrupto permanece como garantidor do ‘privilégio das elites, mesmo em
+um contexto de sufrágio universal’ (SOUZA, 2024).</p>
+<p>Sob este aspecto, não há duvidar que o Poder Judiciário se serviu da
+lei para teorizar e esconder o domínio de elites, através da humilhação
+e submissão impostas a minorias escravizadas. Dessa forma, no ambiente
+rarefeito e hermético das decisões, comparecem advogados, membros do
+Ministério Público, Defensores Públicos; seus Institutos, Associações e
+Ordens, como seguidores de uma verdadeira ‘magistocracia’ — e bastaria
+essa definição para enfatizar o afastamento do judiciário ao povo. Em
+recente artigo, Conrado Hübner Mendes (2023) enfatiza que:</p>
+<blockquote>
+<p>Quando político ou ministro de corte superior diz almejar
+“modernizar” ou “pacificar” qualquer coisa, os novos coronéis, senhores
+de escravos e líderes do crime organizado sabem do que falam. Somos do
+país em que golpe militar se apresentou como “pacificação” e abolição da
+escravidão, sem programa de inclusão da população negra, como
+“modernização” (MENDES, 2023, s/p).</p>
+</blockquote>
+<p>Assim, prossegue o autor, enfeitam a modernização com discurso de
+reforma e desde que não seja qualquer reforma, pois lutam,
+exemplificativamente, na administrativa, “em favor da burocracia servil,
+burra, sem expertise e responsabilidade”; na trabalhista eliminam o
+direito do trabalho e explodem a “relação de emprego”. Piores conceitos
+mencionam o roteiro da “pacificação”: “temos a anistia a torturadores
+militares por crimes contra a humanidade, pois sancionar seria
+revanchismo (ADPF 320 dormita no STF há 10 anos)”. E ainda na luta pela
+anistia “o plano de golpe de 8 de janeiro” e “a conciliação a fórceps
+dos direitos indígenas”, sendo estes, as vítimas, intimados a negociar
+com seus algozes, os latifundiários do agronegócio. E arremata: “Nosso
+pior passado ainda se mete no nosso futuro” (idem).</p>
+<p>Cabe mencionar ainda a tentativa de atender à pretensão de pobres e
+humilhados ao acesso a uma ordem jurídica justa que, em 1984, criada a
+lei dos Juizados de Pequenas Causas, surge como certeza de avanço. A
+elite, porém, nela vislumbrou arranhões ao seu poder e a modifica, em
+1995, através da Lei dos Juizados Especiais Civis e Criminais, com o
+valoroso esforço do então deputado Michel Temer, e que, mantendo os
+defeitos do anterior, amplia competências, diante da morosidade crônica
+na designação de interrogatório ou na realização da audiência
+inicial.</p>
+<p>É óbvio que, na esfera civil, a presença do pobre é quase
+inexpressiva, enquanto na penal consolida o desejo da elite de
+criminalizá-los e, para mais adiante, a exemplo dos EUA, privatizarem-se
+os presídios, sob as mais indisfarçáveis desculpas: impedir a
+superlotação carcerária e economizar gastos ao Estado. Forma de consumar
+notórios equívocos ao submeter réus, mesmo inocentes e na sua maioria
+pobres, a conciliações forçadas e a condenações com aplicação de
+‘pequenas penas’, aceitas ao temor de hipotéticas maiores, aplicadas no
+sistema norte-americano pelo Grande Júri. Assim, atualiza-se o surrado
+jargão da perseguição aos “três pês”: preto, puta e pobre, e novamente
+aparece o mercado como virtuoso e o Estado como corrupto (SOUZA, 2024,
+p. 212).</p>
+<p>Anote-se sob este aspecto a incessante perseguição empreendida pelos
+governantes aos pobres, especialmente aos da ralé que os ajuda a serem
+eleitos, por meio de suas polícias militares, que se recusam a fixar
+câmera ao fardamento — e que poderia filmar ameaças ou agressões
+sofridas, além de fixar perversões, atrocidades e assassinatos que
+eventualmente sejam cometidos —, recusa que releva com o apoio de alguns
+ministros do Supremo Tribunal Federal (TOLEDO; BILENKY, 2025).</p>
+<p>Assim o arcabouço político, acadêmico e jurídico que se constitui
+para atribuir ao Estado a ‘herança maldita’ da corrupção, permanecendo a
+elite como sua principal detentora, enquanto o pobre ‘corrupto’ surge
+como seu auxiliar e desfruta ainda da alcunha ideológica “de direita”,
+nada obstante excluído da vida social. Quando Faustino e Lippold (2025),
+com respaldo em Frantz Fanon, repetem que “não há colonialismo sem
+racismo” (idem, p. 26) e enfatizam “entender a relação entre
+colonialismo, racismo e tecnologias informacionais no interior da luta
+de classes” (ibidem), eles evidenciam que, no contexto do colonialismo
+digital, as big techs acabam por ampliar a dominação (através, por
+exemplo, de algoritmos) e perpetuar a exclusão. Se esses elementos
+tornam as instituições brasileiras cúmplices históricas de uma dominação
+que se processa sob a aparência da mais estrita legalidade e da
+inevitabilidade tecnológica, não resta dúvida de que, ao mesmo tempo,
+acabam, querendo ou não, por construir novo horizonte de luta.</p>
+<h1 id="o-capital-improdutivo">O capital improdutivo</h1>
+<p>A economia brasileira, no pós-2005, deparou-se com oligopólio
+sistêmico financeiro, criado por grandes bancos através de práticas
+fraudulentas e uma governança global, verdadeira estrutura articulada de
+poder (DOWBOR, 2018), estas circunstâncias aliadas à prática dos juros
+altos, evasão de divisas e sequestro dos impostos e do orçamento, além
+da cooptação do conhecimento e da informação por grandes corporações,
+vedam qualquer espaço à economia ao exercício da função social, com
+evidente subutilização de fatores produtivos.</p>
+<p>O capital improdutivo é: 1. extrator de recursos e vidas, ao submeter
+e explorar o trabalhador e expropriar terras, através da intervenção
+violenta no meio ambiente, impedindo-lhes a sobrevivência; 2. sequestra
+impostos à família (políticas públicas) e ao Estado impede que se
+atualize a infraestrutura; 3. utiliza-se da mídia submissa a seus
+proprietários; e 4. através de um judiciário leniente e ‘paralelo’,
+impede que se atinja a justiça. Com o fim das garantias legais e do
+próprio emprego, desaparece a demanda e o poder de compra, enquanto o
+empresário deixa de reinvestir, optando por ‘aplicações’ e evasão em
+‘paraísos fiscais’, sem trabalhar ou pagar impostos, impõe subutilização
+aos fatores da produção. Shaxson, citado por Dowbor (2018, p. 85),
+resume o dilema: ao reduzir a taxa de juros, o capital em fuga
+consolidará ‘a riqueza para cima e os riscos para baixo’, vedado
+qualquer aceno do governo ao bem-estar ao pobre e remediado que, na
+insistência, enfrentará sua deposição, por impedimento ou golpe de
+Estado.</p>
+<p>Thomas Piketty (DOWBOR, 2018) crê que a regulamentação da dívida
+pública, fiscalizada a tributação e aplicações, além de criar imposto
+mundial progressivo sobre o capital, poderá recuperar a função social da
+economia e fazer o Estado voltar a seu papel de indutor do
+desenvolvimento. Também no mundo da tecnologia da informação
+(copyrights, patentes, acesso aberto) e do conhecimento, sob estreito
+controle das Big Techs, depara-se o mundo com aportes expressivos do
+crime organizado (BOUQUET, 2023). No Brasil, o PCC se instala no sistema
+rentista, através de empresas reais (GODOY, 2025), e há que recordar as
+contribuições de Castell, Gorz e Lessing (DOWBOR, 2024), que esmiúçam os
+perigos que rondam os caminhos da informação e do conhecimento, ao
+controle das grandes corporações, que promovem a ampla conectividade
+para transmissões cada vez mais distantes, mas, pelo contrário, impõem
+forte poder repressivo a seu acesso e se constituem em novos desafios à
+democratização do conhecimento que liberta.</p>
+<h1 id="o-judiciário-operacional">O Judiciário operacional</h1>
+<p>Vivemos sob instituições públicas que, atraídas pela coisificação de
+princípios e posturas, deixam de ser espaços de formação intelectual,
+reflexão crítica e democratização do saber para se verem impulsionadas
+por ilusória conceituação pós-moderna e lançadas aos pés do
+neoliberalismo — mito salvador que, no entanto, não resiste ao
+diagnóstico preciso de Marilena Chauí sobre a universidade operacional.
+A mutação que a filósofa identifica na universidade brasileira, de
+instituição social voltada para o conhecimento a organização prestadora
+de serviços, regida por índices de produtividade e lógica gerencial,
+atravessou igualmente o Poder Judiciário: de instituição garantidora de
+direitos, converteu-se em estrutura que, sob aparência de neutralidade
+técnica, opera como guardiã dos privilégios oligárquicos. Nas suas
+palavras, o Poder Judiciário é “claramente percebido como distante,
+secreto, representante dos privilégios das oligarquias e não dos
+direitos da generalidade social” (CHAUÍ, 2001, p. 14). É sob esse perfil
+que se perpetua a exclusão histórica dos afrodescendentes, e não só
+deles. Sueli Carneiro (2019) denomina epistemicídio o conjunto de
+estratégias legitimadoras da tese de que determinados grupos são, por
+natureza, seres não suficientemente capazes de produzir conhecimento e
+ciência. O Judiciário, ao operar como organização a serviço das elites,
+naturaliza essa negação e a reproduz em suas práticas cotidianas. A
+citação de Chauí condensa, portanto, o argumento central deste ensaio:
+instituições que deveriam responder às contradições sociais e ampliar
+direitos convertem-se, sob a racionalidade neoliberal, em organizações
+que naturalizam desigualdades e protegem interesses particulares.</p>
+<p>Em 31 de março de 1964, neto de imigrantes e na infeliz coincidência
+com a política civil-militar golpista, ingresso na Faculdade de Direito
+da USP e no Poder Judiciário, na função de contínuo-porteiro contratado,
+alcançando a magistratura em 1975 até a aposentadoria compulsória, aos
+70 anos, em 2013. Desde o início, recusei aquela estrutura assustadora e
+secreta que se propunha a proteger os direitos das elites. O que a
+experiência revelava, a teoria política confirma: Lara Mesquita (2026),
+ao citar Przeworski, demonstra que países com modelos de controle
+constitucional de revisão <em>ex-post</em>, isto é, sobre leis já
+aprovadas pelo Legislativo, como o adotado no Brasil, são justamente
+aqueles em que elites políticas aceitam “amarrar as próprias mãos” ao
+transferir poder a tribunais independentes, sinalizando aos detentores
+do capital que seus direitos de propriedade estarão protegidos. O acesso
+a esse círculo é conquistado por jantares exclusivos, palestras bem
+remuneradas e tolerância com práticas eticamente questionáveis — o que
+destrói a precária confiança na imparcialidade de seus membros.</p>
+<p>A dimensão racial dessa seletividade institucional é incontornável.
+Conrado Hübner Mendes (2023, p. 287) reconhece que o Estado brasileiro,
+ao aplicar a “justiça cega”, igual para todos, protege os “amigos”
+ignorando vulnerabilidades especiais de crianças, idosos, mulheres,
+negros, e arremata: “Pessoas negras, além de serem mais encarceradas,
+condenadas e assassinadas pela polícia, são também, sem surpresa, mais
+presas em flagrante”. A situação agrava-se no cumprimento da pena, em
+ambientes abjetos e desumanos que produzem incapacitações morais e
+físicas. César Ramos (2024) denuncia o que já não se pode esconder: o
+genocídio perpetrado contra a juventude negra. Assim, a conversão do
+Judiciário em organização operacional não é processo neutro: opera
+seletivamente, naturalizando a vulnerabilidade de alguns enquanto blinda
+os privilégios de outros. A “justiça cega” revela-se, na prática,
+cegueira deliberada às assimetrias estruturais que atravessam a
+sociedade brasileira desde sua formação colonial.</p>
+<p>Se na esfera penal a seletividade é brutal, no âmbito cível
+perpetua-se o debate sobre o acesso à justiça, com reiterado apagamento
+e exclusão dos despossuídos. Ao início dos anos 1980, membros da
+universidade e magistrados propuseram o Juizado de Pequenas Causas (Lei
+nº 7.244/84), esperança que confirmava o atraso da processualística
+brasileira, enfatizado pela obra de Cappelletti e Garth (1978),
+amplamente citada pela doutrina comparada (LAGRASTA NETO, 1985). Esta
+experiência, que estava destinada ao mesmo sucesso das <em>small claims
+courts</em> norte-americanas, foi desvirtuada pelo então deputado Michel
+Temer, a começar pela ampliação de competência através da Lei nº
+9.099/95. Após o início promissor, constatou-se que, na maioria dos
+estados, os pobres continuaram sem meios para comparecer em juízo,
+situação agravada pela recusa dos advogados em participar e pelo
+Judiciário desaparelhado de meios materiais e humanos, vendo-se o Estado
+forçado a recorrer às universidades e empresas privadas para instalação
+dos Juizados e submetido à formação de frágeis conciliadores, com
+retorno de responsabilidades públicas à iniciativa privada. Também o
+sistema da arbitragem, endereçado a organizações como a FIESP, acolheu
+as elites e os grandes conglomerados internacionais, enquanto as
+conciliações, formatadas pela lógica contratual neoliberal,
+frequentemente servem para ludibriar o fisco. Nada há de espantar, ao se
+pretender seja o juiz um eterno estudante e conciliador. Qual será esse
+juiz, o mesmo denunciado por João José Reis (2019, p. 101 e ss.) na
+greve negra de 1857 na Bahia: o de Paz, vituperado pelo Ministro Costa
+Manso (1934, p. 58 apud WATANABE et al., 1985, p. 58) como “instrumento
+da politicalha local e, portanto, instrumento de opressão”, que “nem é
+mais juiz, nem o é de paz”? Ou será o conciliador despreparado que,
+valendo-se da transação penal, insinua ao acusado que aceitar o acordo
+evitará pena maior, reproduzindo, em escala nacional, a lógica perversa
+do <em>plea bargain</em>?</p>
+<p>Não se trata de coincidência. Nos Estados Unidos, berço do modelo, o
+<em>plea bargain</em> exemplifica de modo paradigmático a conversão do
+sistema de justiça em organização operacional a serviço da seletividade
+racial e de classe. Trata-se de mecanismo pelo qual o acusado pode optar
+por admitir culpa ou, ao negá-la, submeter-se a julgamento pelo júri. A
+negociação de confissão é oferecida rotineiramente a réus pobres,
+negros, refugiados e imigrantes, convencidos por advogados dativos —
+indicados pela própria Corte — de que, ao fazer acordo com o magistrado,
+receberão pena mais leve, ainda que sejam inocentes. Com este mecanismo,
+centenas de milhares de inocentes assumem culpa inexistente, alimentando
+a crise populacional de presídios privatizados e garantindo lucro às
+empresas encarregadas da execução penal. O agravamento surge no governo
+Trump, quando o mecanismo passa a ser instrumentalizado contra aqueles
+réus, permitindo prisão e deportação de quem foi condenado, muitas vezes
+por confessar crime que não cometeu.</p>
+<p>Se no âmbito cível e penal a exclusão é estrutural, na Justiça
+Eleitoral a urgência de enfrentar a desinformação impõe-se a cada ciclo
+eleitoral — e o Judiciário segue em atraso. O distanciamento entre o
+avanço tecnológico e a capacidade institucional de resposta é alarmante:
+decisões judiciais demoram dias para impedir a divulgação de conteúdos
+racistas, mentirosos ou ofensivos, tempo suficiente para que o dano à
+esfera pública se consume irreversivelmente. Amaral (2026) destaca o
+risco estrutural representado pelo incentivo econômico das grandes
+plataformas tecnológicas para não agir de forma contundente contra
+golpes, fraudes e desinformação, especialmente promovidos pela Direita.
+A questão não se resume à inteligência artificial. O problema é a
+incapacidade do Judiciário operacional — fragmentado em
+micro-organizações, ocupado com metas de produtividade — de enfrentar
+ameaças que exigem reflexão crítica e articulação interinstitucional.
+Aqui, novamente, a análise de Chauí se confirma: uma organização voltada
+para si mesma, regida por índices de eficácia e contratos de gestão, não
+dispõe de tempo nem de estrutura para a ação transformadora que a
+conjuntura exige.</p>
+<p>Diante desse diagnóstico, e como anseio de esperança, cabe convocar
+as Escolas de Magistratura, instituições já existentes no interior do
+Judiciário, não apenas para a formação técnica de seus membros, mas para
+uma tarefa de outra natureza. Durante quatro exaustivas semanas, reunir
+magistrados, promotores e defensores públicos, advogados, populares e
+representantes de movimentos sociais — contemplando a diversidade de
+credos, gêneros e cores historicamente excluídas dos espaços decisórios
+— para elaborar um anteprojeto legislativo que alcance a todos os
+impedidos de acesso a uma ordem jurídica justa. Tal iniciativa exigiria,
+simultaneamente, a redação de um código de conduta ética e funcional que
+obrigue todos os operadores do sistema de justiça. A microação não
+pretende resolver a captura neoliberal das instituições, mas abrir
+fissuras no interior da organização operacional, reintroduzindo a
+reflexão crítica e a referência à sociedade como princípio normativo —
+precisamente o que distingue a instituição da mera organização, na
+análise de Chauí (1999).</p>
+<p>Permanece, contudo, uma interrogação que nenhuma microação pode
+elidir: é possível transformar uma organização operacional novamente em
+instituição social sem transformar as estruturas materiais e sociais que
+a produziram? A resposta não vem. Penso nas palavras da personagem de
+<em>O Último Pub</em> (LOACH, 2023) quando, sombriamente, sentencia: “a
+esperança é obscena”. E fico matutando: quando o Brasil, a exemplo de
+Trump, vai criar e instalar o seu ICE?</p>
+
+    <div class="referencias">
+      <h1>Referências</h1>
+      <p>ALBUQUERQUE E SILVA, Silvio José. <em>Cidadanias mutiladas —
+Dignidades restauradas</em>. Rio de Janeiro: Telha, 2025 (Coleção
+Pensamento Negro Contemporâneo).</p>
+<p>ALONSO, Ângela. <em>Flores, votos e balas: o movimento abolicionista
+brasileiro (1868-88)</em>. São Paulo: Companhia das Letras, 2015.</p>
+<p>AMARAL, Maria Eduarda. Com avanço da IA, big techs vão disputar
+comando das eleições com o TSE. <em>Consultor Jurídico</em>, 11 jan.
+2026.</p>
+<p>ANDRADE, Mário de. <em>Macunaíma: o herói sem nenhum caráter</em>.
+São Paulo: Penguin-Companhia, 2016.</p>
+<p>ANDRADE, Mário de. <em>Missão de Pesquisas Folclóricas</em>. São
+Paulo: SESC São Paulo, 2007. 6 CDs + livro.</p>
+<p>ASSIS, Denise. Delfim Netto, do milagre aos porões. <em>Brasil
+247</em>, 19 mar. 2024.</p>
+<p>AVELAR, Lúcia. As eleições na era da televisão. <em>Revista de
+Administração de Empresas</em>, São Paulo, v. 31, n. 1, p. 22-29,
+jan./mar. 1991.</p>
+<p>BRASIL. Lei nº 7.244, de 7 de novembro de 1984. Dispõe sobre a
+criação e o funcionamento do Juizado Especial de Pequenas Causas.
+<em>Diário Oficial da União</em>, Brasília, DF, 8 nov. 1984.</p>
+<p>BRASIL. Lei nº 8.080, de 19 de setembro de 1990. Dispõe sobre as
+condições para a promoção, proteção e recuperação da saúde. Brasília,
+DF: Presidência da República, 1990.</p>
+<p>BRASIL. Lei nº 9.099, de 26 de setembro de 1995. Dispõe sobre os
+Juizados Especiais Cíveis e Criminais. <em>Diário Oficial da União</em>,
+Brasília, DF, 27 set. 1995.</p>
+<p>CAPPELLETTI, Mauro; GARTH, Bryant. <em>Access to Justice: a world
+survey</em>. Milão: Giuffrè, 1978.</p>
+<p>CARNEIRO, Sueli. A construção do outro como não-ser como fundamento
+do ser. In: <em>Racismo, sexismo e desigualdade no Brasil</em>. São
+Paulo: Selo Negro, 2005.</p>
+<p>CARNEIRO, Sueli. <em>Escritos de uma vida</em>. São Paulo: Jandaíra,
+2019.</p>
+<p>CARPENTIER, Alejo. <em>O reino deste Mundo</em>. São Paulo: Martins
+Fontes, 2005.</p>
+<p>CARVALHO, José Murilo de. <em>Forças Armadas e política
+brasileira</em>. São Paulo: Todavia, 2019.</p>
+<p>CHADE, Jamil. <em>Tomara que você seja deportado: uma viagem na
+distopia americana</em>. São Paulo: Editora Nós, 2025.</p>
+<p>CHAGAS, Juliana; TORRES, Raquel. Reivindicações sociais durante a
+ditadura apontam a necessidade de redemocratização.
+<em>EPSJV/Fiocruz</em>, 1 set. 2008.</p>
+<p>CHALOUB, Jorge. O golpe de 2016 e as saídas para as tragédias do
+presente. <em>Carta Capital</em>, São Paulo, 29 jan. 2023.</p>
+<p>CHAUÍ, Marilena. A universidade operacional. <em>Avaliação: Revista
+da Avaliação da Educação Superior</em>, Campinas, v. 4, n. 3, p. 3-8,
+1999.</p>
+<p>CHAUÍ, Marilena. <em>Escritos sobre a universidade</em>. São Paulo:
+Editora UNESP, 2001.</p>
+<p>COSTA, Gilberto. Relembre o passo a passo da tentativa de golpe no
+8/1. <em>Agência Brasil</em>, 8 jan. 2024.</p>
+<p>DARDOT, Pierre et al. <em>A escolha da guerra civil: uma outra
+história do neoliberalismo</em>. São Paulo: Elefante, 2021.</p>
+<p>DOWBOR, Ladislau. <em>A era do capital improdutivo: por que oito
+famílias têm mais riqueza do que a metade da população do mundo?</em> 2.
+ed. São Paulo: Outras Palavras; Autonomia Literária, 2018.</p>
+<p>DOWBOR, Ladislau. <em>A Revolução Digital: uma sociedade à beira de
+rupturas</em>. 2024. Disponível em: dowbor.org.</p>
+<p>DOWBOR, Ladislau. <em>Resgatar a função social da economia: uma
+questão de dignidade humana</em>. São Paulo: Outras Palavras; Editora
+Elefante, 2022.</p>
+<p>DUARTE-PLON, Leneide. <em>A tortura como arma de guerra: da Argélia
+ao Brasil</em>. Rio de Janeiro: Civilização Brasileira, 2026.</p>
+<p>EIRAS, Yuri; VIECELI, Leonardo. Renda por hora de trabalho dos
+brancos é 64% maior que a dos pretos e pardos. <em>Folha de
+S.Paulo</em>, São Paulo, 3 dez. 2025.</p>
+<p>FAORO, Raymundo. <em>Os donos do poder: formação do patronato
+político brasileiro</em>. 2. ed. rev. Porto Alegre: Globo, 1975.</p>
+<p>FARIAS, Tom. Brasil vive sua terceira escravidão sob a ordem mundial
+de novo capitalismo. <em>Folha de S.Paulo</em>, São Paulo, out.
+2025.</p>
+<p>FAUSTINO, Deivison; LIPPOLD, Walter. <em>Colonialismo Digital — por
+uma crítica Hacker Fanoniana</em>. São Paulo: Boitempo, 2025.</p>
+<p>FRASER, Nancy. <em>O velho está morrendo e o novo não pode
+nascer</em>. São Paulo: Autonomia Literária, 2019.</p>
+<p>FREYRE, Gilberto. <em>Casa-grande &amp; senzala</em>. 48. ed. Rio de
+Janeiro: Record, 2003.</p>
+<p>FURTADO, Celso. <em>Criatividade e dependência na civilização
+industrial</em>. Rio de Janeiro: Paz e Terra, 1978.</p>
+<p>GODOY, Marcelo. Posto de gasolina, agência de carros, casa de câmbio
+e igreja: os setores onde o PCC lava dinheiro. <em>Estadão</em>, São
+Paulo, 26 jun. 2025.</p>
+<p>GONÇALVES, Ana Maria. <em>Um defeito de cor</em>. Rio de Janeiro:
+Record, 2025.</p>
+<p>GRAEBER, David; WENGROW, David. <em>O despertar de tudo: uma nova
+história da humanidade</em>. Tradução de Claudio Marcondes e Denise
+Bottmann. São Paulo: Companhia das Letras, 2022.</p>
+<p>GRAHAM, David A. <em>O Projeto: como a extrema direita está
+transformando os Estados Unidos</em>. 1. ed. Rio de Janeiro: Zahar,
+2025.</p>
+<p>GREENHALGH, Laura. Plano para ‘Nova Gaza’ revela ambição imobiliária
+de Trump e seus agentes. <em>Folha de S.Paulo</em>, São Paulo, 10 out.
+2025.</p>
+<p>HAZAREESINGH, Sudhir. <em>O maior revolucionário das Américas: a vida
+épica de Toussaint Louverture</em>. Tradução de Berilo Vargas. 1.
+ed. Rio de Janeiro: Zahar, 2021.</p>
+<p>HOLANDA, Sérgio Buarque de. <em>Raízes do Brasil</em>. 26. ed. Rio de
+Janeiro: José Olympio, 1995.</p>
+<p>INSTITUTO VLADIMIR HERZOG. <em>DOI-CODI, a máquina de torturar e
+matar</em>. 1970. Memorial da Democracia.</p>
+<p>LACERDA, Lucas. 16% das crianças de até 6 anos já teriam sofrido
+racismo, segundo percepção de responsáveis. <em>Datafolha</em>, São
+Paulo, out. 2025.</p>
+<p>LAGRASTA, Caetano. <em>Vesalius e Música: ensaio para poemas
+atonais</em>. São Paulo: Desconcertos, 2024.</p>
+<p>LAGRASTA NETO, Caetano. Juizado Especial de Pequenas Causas e Direito
+Processual Civil Comparado. In: WATANABE, Kazuo (coord.). <em>Juizado
+Especial de Pequenas Causas: Lei 7.244, de 7 de novembro de 1984</em>.
+São Paulo: Revista dos Tribunais, 1985. p. 37-101.</p>
+<p>LIMA NETO, Francisco. GCM fere jovem à queima-roupa com arma não
+letal em dispersão de baile funk em SP. <em>Folha de S.Paulo</em>, São
+Paulo, 4 dez. 2025.</p>
+<p>LOACH, Ken. <em>The Old Oak</em> [O Último Pub]. Direção: Ken Loach.
+Reino Unido: Sixteen Films, 2023. 1 filme (113 min).</p>
+<p>LOPES, Nei; SIMAS, Luiz Antonio. <em>Dicionário da História Social do
+Samba</em>. Rio de Janeiro: Civilização Brasileira, 2015.</p>
+<p>MAGOSSI, Eduardo. Dias de luta. <em>Pesquisa FAPESP</em>, São Paulo,
+n. 357, p. 82-86, nov. 2025.</p>
+<p>MAQUIAVEL, Nicolau. <em>O príncipe</em>. São Paulo: Edipro, 2025.</p>
+<p>MATTEI, Clara E. <em>A ordem do capital: como economistas inventaram
+a austeridade e abriram caminho para o fascismo</em>. 1. ed. São Paulo:
+Boitempo, 2023.</p>
+<p>MENDES, Conrado Hübner. <em>O discreto charme da magistocracia</em>.
+São Paulo: Todavia, 2023.</p>
+<p>MESQUITA, Lara. Legitimidade democrática e revisão dos tribunais.
+<em>Folha de S.Paulo</em>, São Paulo, 11 jan. 2026.</p>
+<p>MESTRE Marçal — Programa Ensaio [1991]. [S.l.]: YouTube, 11 set.
+2020. 1 vídeo (54 min).</p>
+<p>MINISTÉRIO DA SAÚDE. <em>Brasil chega à marca de 700 mil mortes por
+Covid-19</em>. 2023.</p>
+<p>MOOG, Clodomir Vianna. <em>Bandeirantes e pioneiros</em>. Rio de
+Janeiro: Globo, 1954.</p>
+<p>NAPOLITANO, Marcos. A história política do golpe de 1964 e do regime
+militar: balanços e perspectivas. <em>Revista Tempo e Argumento</em>, v.
+16, n. 42, 2024.</p>
+<p>PERIPATO, Vinicius et al. More than 10,000 pre-Columbian earthworks
+are still hidden throughout Amazonia. <em>Science</em>, v. 382, n. 6666,
+p. 103-109, 6 out. 2023.</p>
+<p>QUEIROZ, Marcos. <em>Assombros da casa-grande: a Constituição de 1824
+e as vidas póstumas da escravidão</em>. São Paulo: Fósforo, 2024.</p>
+<p>RAMOS, Paulo César. <em>Gramática negra contra a violência de Estado:
+da discriminação racial ao genocídio negro (1978-2018)</em>. São Paulo:
+Elefante, 2024.</p>
+<p>REIS, João José. <em>Ganhadores: a greve negra de 1857 na Bahia</em>.
+São Paulo: Companhia das Letras, 2019.</p>
+<p>RIBEIRO, Darcy. <em>O povo brasileiro: a formação e o sentido do
+Brasil</em>. São Paulo: Companhia das Letras, 1995.</p>
+<p>RIBEIRO, Renato Janine. O retorno do bom governo. In: <em>Política e
+ética: pontos de vista</em>. São Paulo: Instituto Moreira Salles,
+2025.</p>
+<p>RODA VIVA. Antonio Pitanga. São Paulo: TV Cultura, 27 out. 2025. 1
+vídeo (1h32min).</p>
+<p>ROGERO, Tiago. <em>Projeto Querino</em> [podcast]. Produção: Rádio
+Novelo, 2022. Episódio 1.</p>
+<p>ROSTAIN, Stéphen et al. Two thousand years of garden urbanism in the
+Upper Amazon. <em>Science</em>, v. 383, n. 6679, 11 jan. 2024.</p>
+<p>SAFATLE, Vladimir. <em>A esquerda que não teme dizer seu nome</em>.
+São Paulo: Planeta do Brasil, 2025.</p>
+<p>SAMPAIO, Humberto. Bahia pode ganhar nova universidade federal;
+entenda. <em>BNews</em>, Brasília, 7 out. 2025.</p>
+<p>SAUVÊTRE, Pierre et al. <em>Neoliberalismo</em>. São Paulo: Elefante,
+2021.</p>
+<p>SENGULANE, Hipólito. <em>História das instituições de poder político
+em Moçambique</em>. Maputo: Alcance Editores, 2015.</p>
+<p>SINDICATO DOS METALÚRGICOS DE SÃO JOSÉ DOS CAMPOS E REGIÃO.
+<em>Empresas que apoiaram a ditadura poderão ser processadas</em>.
+[s.d.].</p>
+<p>SODRÉ, Muniz. <em>Pensar nagô</em>. Petrópolis: Vozes, 2017.</p>
+<p>SODRÉ, Nelson Werneck. <em>História militar do Brasil</em>. São
+Paulo: Expressão Popular, 2010.</p>
+<p>SOUZA, Jessé. <em>A radiografia do golpe: entenda como e por que você
+foi enganado</em>. Rio de Janeiro: Leya, 2016.</p>
+<p>SOUZA, Jessé. <em>O pobre de direita</em>. São Paulo: Leya, 2024.</p>
+<p>TELES, Edson; SAFATLE, Vladimir (orgs.). <em>O que resta da ditadura:
+a exceção brasileira</em>. São Paulo: Boitempo, 2010.</p>
+<p>THE CORPORATION. Direção: Mark Achbar; Jennifer Abbott. Canadá:
+Zeitgeist Films, 2003. 1 vídeo (145 min).</p>
+<p>THE NEW CORPORATION: the unfortunately necessary sequel. Direção:
+Jennifer Abbott; Joel Bakan. Canadá: Filmrise, 2020. 1 vídeo (105
+min).</p>
+<p>TOLEDO, José Roberto de; BILENKY, Thais. Tarcísio ganha batalha no
+Supremo e simpatia do centrão. <em>UOL</em>, São Paulo, 11 maio
+2025.</p>
+<p>TOYNBEE, Arnold Joseph. <em>Um estudo de história</em>. Brasília:
+Editora UnB, 1987.</p>
+<p>UNIVERSIDADE DA INTEGRAÇÃO INTERNACIONAL DA LUSOFONIA AFRO-BRASILEIRA
+(UNILAB). Criada pela Lei nº 12.289, de 20 de julho de 2010. Redenção,
+CE.</p>
+<p>UNIVERSIDADE ZUMBI DOS PALMARES. Fundada em 2004. São Paulo, SP.</p>
+<p>VARGAS, Luna. O que o genocídio em Gaza tem a ver com o extermínio da
+população negra no Brasil. <em>ICL Notícias</em>, 2025.</p>
+<p>VICTOR, Fabio. <em>Poder camuflado: os militares e a política, do fim
+da ditadura à aliança com Bolsonaro</em>. São Paulo: Companhia das
+Letras, 2022.</p>
+<p>WATANABE, Kazuo (coord.). <em>Juizado Especial de Pequenas Causas:
+Lei 7.244, de 7 de novembro de 1984</em>. São Paulo: Revista dos
+Tribunais, 1985.</p>
+<p>WEBER, Max. <em>A ética protestante e o “espírito” do
+capitalismo</em>. São Paulo: Companhia das Letras, 2004.</p>
+<p>WEBER, Max. <em>Ciência e política: duas vocações</em>. 18. ed. São
+Paulo: Cultrix, 2011.</p>
+<p>WELCH, Cliff. Lula and the meaning of agrarian reform. <em>NACLA —
+North American Congress on Latin America</em>, 12 maio 2011.</p>
+
+    </div>
+  </section>
+
+  <section id="baixar">
+    <h2 class="titulo-secao">Baixar</h2>
+    <p>O e-book (EPUB, para Kindle e leitores digitais) e o PDF do miolo
+    estão disponíveis mediante <strong>doação simbólica de R$ 5,00</strong>,
+    destinada integralmente à Paróquia de São Miguel Arcanjo (Mooca, São
+    Paulo), do Padre Júlio Lancellotti, e às suas ações com a população em
+    situação de rua.</p>
+    <div class="destacado">
+      <p><strong>Como doar:</strong> PIX para a chave
+      <strong>CNPJ&nbsp;63.089.825/0097-96</strong> (Mitra Arquidiocesana de
+      São Paulo — Paróquia São Miguel Arcanjo). A doação é feita diretamente
+      à paróquia, sem intermediários; confira os canais oficiais em
+      <a href="https://www.oarcanjo.net/site/doe/" rel="noopener">oarcanjo.net/site/doe</a>.</p>
+    </div>
+    <p>Feita a doação, baixe seu exemplar — funciona na base da confiança,
+    como tudo nesta coleção:</p>
+    <div class="botoes">
+      <a class="botao" href="arquivos/01-para-interpretar-o-brasil.epub" download>Baixar EPUB</a>
+      <a class="botao" href="arquivos/01-para-interpretar-o-brasil.pdf" download>Baixar PDF</a>
+    </div>
+  </section>
+
+  <section id="fisico">
+    <h2 class="titulo-secao">Exemplar físico</h2>
+    <p>Cada folheto é produzido artesanalmente, sob demanda: 52 páginas em
+    formato 13 × 20 cm, impressas em laser sobre papel sulfite, dobradas e
+    montadas à mão, uma a uma. Não há estoque nem tiragem — seu exemplar é
+    feito quando você o pede.</p>
+    <table class="custos">
+      <tr><td>Exemplar impresso, com envio pelos Correios (impresso módico)</td><td>R$ 15,00</td></tr>
+      <tr><td>Doação à Paróquia de São Miguel Arcanjo</td><td>R$ 5,00</td></tr>
+      <tr class="total"><td>Total</td><td>R$ 20,00</td></tr>
+    </table>
+    <p>Os R$ 20,00 já incluem a doação de R$ 5,00 à paróquia, pela mesma
+    chave PIX indicada acima; o restante cobre o custo de produção e
+    postagem — esta coleção não tem fins lucrativos.</p>
+    <div class="botoes">
+      <a class="botao" href="mailto:drilagrasta@gmail.com?subject=Encomenda%20%E2%80%94%20Ensaio%20Geral%20n%C2%BA%201&body=Ol%C3%A1!%0A%0AQuero%20encomendar%20o%20folheto%20%E2%80%9CPara%20interpretar%20o%20Brasil%E2%80%9D%20(Ensaio%20Geral%20n%C2%BA%201).%0A%0AQuantidade%3A%20%0ANome%20completo%3A%20%0AEndere%C3%A7o%20com%20CEP%3A%20%0A%0AObrigado!">Encomendar por e-mail</a>
+    </div>
+    <p class="miuda">O pedido abre um e-mail pronto para completar com
+    quantidade e endereço. O pagamento é combinado na resposta, e o folheto
+    segue pelos Correios em até uma semana.</p>
+  </section>
+
+  <section id="expediente" class="expediente">
+    <h2 class="titulo-secao">Expediente</h2>
+    <dl>
+      <dt>Editor-chefe</dt><dd>Caetano Lagrasta Neto</dd>
+      <dt>Curadoria</dt><dd>Rodney da Silva Amador</dd>
+      <dt>Projeto gráfico e curadoria</dt><dd>Adriana Aneli</dd>
+      <dt>Curadoria e revisão</dt><dd>Marina Bozzetto, Adriana Elisa Bozzetto</dd>
+      <dt>Contato</dt><dd><a href="mailto:drilagrasta@gmail.com">drilagrasta@gmail.com</a></dd>
+    </dl>
+  </section>
+
+  <footer>
+    <svg class="simbolo" viewBox="0 0 100 100" aria-hidden="true">
+      <g fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round">
+        <path d="M 76 31 A 33 33 0 1 0 76 69"/>
+        <path d="M 35 67 L 67 35"/>
+        <path d="M 58 24 L 76 42"/>
+      </g>
+    </svg>
+    <p class="divisa">Desistir, afinal, é a única forma de derrota.</p>
+    <p class="copy">ensaio geral · folhetos populares e acadêmicos · são paulo · 2026</p>
+  </footer>
+</div>
