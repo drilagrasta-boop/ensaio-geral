@@ -65,8 +65,10 @@
   .capa .apresenta {
     margin: 2.4rem auto 0;
     max-width: 34rem;
-    text-align: left;
+    text-align: justify;
     text-align-last: left;
+    hyphens: auto;
+    -webkit-hyphens: auto;
   }
   .capa .apresenta p + p { margin-top: .9rem; }
   .capa .divisa {
@@ -184,6 +186,12 @@
   .botao:hover { background: var(--tinta); color: var(--cru); text-decoration: none; }
   .miuda { font-size: .88rem; color: var(--tinta-suave); margin-top: 1rem; }
   section p + p { margin-top: .9rem; }
+  section p, .destacado p {
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
 
   table.custos { border-collapse: collapse; margin: 1.2rem 0; font-size: .95rem; }
   table.custos td { padding: .25rem 1.2rem .25rem 0; }
